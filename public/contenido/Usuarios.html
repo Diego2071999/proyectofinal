@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista de Usuarios</title>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="tabla.css">
+    <link rel="stylesheet" href="modales.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url('imagenes/fondo.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .overlay {
+            background-color: rgba(211, 251, 200, 0.7);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            overflow: hidden;
+        }
+        
+        .search-sort-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .search-sort-container input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 300px;
+        }
+
+        /* Estilo personalizado para el buscador de DataTables */
+        .dataTables_filter {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+        .dataTables_filter label {
+            display: flex;
+            align-items: center;
+        }
+        .dataTables_filter input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 300px;
+            margin-left: 10px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #76e28f;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        header h1 {
+            margin: 0;
+            color: white;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .top-bar .button-container button {
+            background-color: #76e28f;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .search-sort-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .field-container {
+            margin-bottom: 15px;
+        }
+        .field-container label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .field-container input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .actions button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .actions button:first-child {
+            background-color: red;
+            color: white;
+        }
+
+        .actions button:last-child {
+            background-color: #ccc;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="pedidos.html">Pedidos</a></li>
+                    <li><a href="listadoclientes.html">Clientes</a></li>
+                    <li><a href="Seguimiento_Pacientes.html">Seguimiento de Pacientes</a></li>
+                    <li><a href="doctor.html">Doctores</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="relacionDoctorPaciente.html">Doctor Paciente</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <header>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <img src="imagenes/menu.png" alt="Menú" style="width: 100%; height: 100%;">
+            </div>
+            <div class="logo-container">
+                <img src="imagenes/logo.png" alt="Logo" class="logo">
+            </div>
+            <div><h1>Usuarios</h1></div>
+            
+        </header>
+
+        <div class="container">
+            <div class="top-bar">
+                <div class="search-sort-container">
+                    <!-- Buscador personalizado -->
+                    <div id="customSearchContainer"></div>
+        
+                    <!-- Botón desplegable para ordenar -->
+                    <div class="dropdown">
+                        <button class="dropdown-btn">Ordenar</button>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="ordenarPor('nombre')">Ordenar por Nombre</a>
+                            <a href="#" onclick="ordenarPor('apellido')">Ordenar por Apellido</a>
+                            <a href="#" onclick="ordenarPor('rol')">Ordenar por Rol</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button id="btnNuevo" type="button" class="btn btn-info" onclick="abrirModal('crear')">
+                        <i class="material-icons">library_add</i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-container" style="flex: 1; overflow-y: auto; border: 1px solid #4db5e3; margin: 20px 0; max-height: 665px;">
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Rol</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se insertarán las filas de usuarios dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<!-- Modal para Crear/Editar Usuarios -->
+<div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Insertar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="formUsuarios">    
+                <div class="modal-body">
+                    <!-- Nombre -->
+                    <div class="form-group">
+                        <label for="nombre" class="col-form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" required>
+                    </div>
+                    <!-- Apellido -->
+                    <div class="form-group">
+                        <label for="lastname" class="col-form-label">Apellido:</label>
+                        <input type="text" class="form-control" id="lastname" required>
+                    </div>
+                    <!-- Correo -->
+                    <div class="form-group">
+                        <label for="correo" class="col-form-label">Correo:</label>
+                        <input type="email" class="form-control" id="correo" required>
+                    </div>
+                    <!-- Teléfono -->
+                    <div class="form-group">
+                        <label for="telefono" class="col-form-label">Teléfono:</label>
+                        <input type="tel" class="form-control" id="telefono" required>
+                    </div>
+                    <!-- Rol (cambiado a cuadro de texto) -->
+                    <div class="form-group">
+                        <label for="rol" class="col-form-label">Rol:</label>
+                        <input type="text" class="form-control" id="rol" required>
+                    </div>
+                    <!-- Contraseña -->
+                    <div class="form-group">
+                        <label for="password" class="col-form-label">Contraseña:</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <!-- Nombre de Usuario -->
+                    <div class="form-group">
+                        <label for="nombre_usuario" class="col-form-label">Nombre de Usuario:</label>
+                        <input type="text" class="form-control" id="nombre_usuario" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
+                </div>
+            </form>    
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Crear Nuevo Usuario -->
+<div id="newUserModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="cerrarNuevoUsuarioModal()">&times;</span>
+        <h2>Crear Nuevo Usuario</h2>
+        <form id="newUserForm">
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="inputname" placeholder="Nombre">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="inputlastname" placeholder="Apellido">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Correo</label>
+                <input type="email" class="form-control" id="inputemail" placeholder="Correo">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="inputtel" placeholder="Teléfono">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Rol</label>
+                <input type="text" class="form-control" id="inputrol" placeholder="Rol">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="inputpassword" placeholder="Contraseña">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nombre de Usuario</label>
+                <input type="text" class="form-control" id="inputusername" placeholder="Nombre de Usuario">
+            </div>
+            <button type="button" class="btn btn-primary" id="btnAdd" onclick="crearNuevoUsuario()">Enviar</button>
+            <button type="button" class="btn btn-secondary" onclick="cerrarNuevoUsuarioModal()">Cancelar</button>
+        </form>
+        
+    </div>
+</div>
+
+<!-- Modal para actualizar usuario -->
+<div id="updateUserModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="cerrarUpdateModal()">&times;</span>
+        <h2>Actualizar Usuario</h2>
+        <form id="updateUserForm">
+            <input type="hidden" id="update-user-id">
+            <label for="update-nombre">Nombre:</label>
+            <input type="text" id="update-nombre" required>
+
+            <label for="update-apellido">Apellido:</label>
+            <input type="text" id="update-apellido" required>
+
+            <label for="update-correo">Correo:</label>
+            <input type="email" id="update-correo" required>
+
+            <label for="update-telefono">Teléfono:</label>
+            <input type="text" id="update-telefono" required>
+
+            <label for="update-username">Nombre de Usuario:</label>
+            <input type="text" id="update-username" required>
+
+            <label for="update-rol">Rol:</label>
+            <input type="text" id="update-rol" required>
+
+            <label for="update-password">Contraseña:</label>
+            <input type="password" id="update-password" required>
+
+            <button type="submit">Actualizar</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de Advertencia para Eliminar Usuario -->
+ <div id="deleteUserModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="cerrarDeleteUserModal()">&times;</span>
+            <h2>Advertencia</h2>
+            <p>¿Está seguro de eliminar este usuario?</p>
+            <div class="actions">
+                <button id="confirmDeleteBtn">Eliminar</button>
+                <button onclick="cerrarDeleteUserModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal para ver detalles del usuario -->
+<div id="userModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="cerrarModal()">&times;</span>
+        <h2>Detalles del Usuario</h2>
+        <p><strong>Nombre:</strong> <span id="modal-nombre"></span></p>
+        <p><strong>Apellido:</strong> <span id="modal-apellido"></span></p>
+        <p><strong>Correo:</strong> <span id="modal-correo"></span></p>
+        <p><strong>Teléfono:</strong> <span id="modal-telefono"></span></p>
+        <p><strong>Nombre de Usuario:</strong> <span id="modal-username"></span></p>
+        <p><strong>Rol:</strong> <span id="modal-rol"></span></p>
+    </div>
+</div>
+
+
+    <script src="menu.js"></script>
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>  
+<script src="usuarios.js"></script>
+<script src="modales.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectar Frontend con Backend</title>
+    <link rel="stylesheet" href="estilo_entrega.css">
+    
+    <!-- Enlace al favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Redirección automática a login.html -->
+    <script>
+        window.location.href = "contenido/loginV2.html";  // Cambia "login.html" por la ruta correcta
+    </script>
+</head>
+<body>
+    <h1>Conectar Frontend JavaScript con Backend Node.js</h1>
+
+    <!-- El contenido de la página no se mostrará ya que la redirección es inmediata -->
+    <button id="getDataBtn">Obtener Datos del Backend</button>
+    <div id="responseGet"></div>
+
+    <form id="dataForm">
+        <input type="text" id="name" placeholder="Nombre">
+        <button type="submit">Enviar Datos</button>
+    </form>
+    <div id="responsePost"></div>
+
+    <script src="main.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
+

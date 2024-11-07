@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Preguntas</title>
+    <link rel="stylesheet" href="menu.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('imagenes/fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        .overlay {
+            background-color: rgba(211, 251, 200, 0.7);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            color: white;
+            font-size: 36px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        select {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .report-selector {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Previous styles remain the same */
+        .medication-section {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .remove-medication {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .remove-medication:hover {
+            background-color: #c82333;
+        }
+
+        .add-medication {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .add-medication:hover {
+            background-color: #0056b3;
+        }
+
+        .medication-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="pedidos.html">Pedidos</a></li>
+                    <li><a href="listadoclientes.html">Clientes</a></li>
+                    <li><a href="Seguimiento_Pacientes.html">Seguimiento de Pacientes</a></li>
+                    <li><a href="doctor.html">Doctores</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="relacionDoctorPaciente.html">Doctor Paciente</a></li>
+                    <li><a href="Usuarios.html">Usuarios</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <header>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <img src="imagenes/menu.png" alt="Menú" style="width: 30px; height: 30px;">
+            </div>
+            <div class="logo">
+                <img src="imagenes/logo.png" alt="Pharevsa">
+            </div>
+            <h1>Nueva Orden</h1>
+        </header>
+
+        <div class="container" style=" overflow-y: auto;  max-height: 770px;">
+            <h1>Toma de Datos</h1>
+            <form id="facturaForm">
+                <label for="inputNIT">NIT:</label>
+                <input type="text" id="inputNIT" placeholder="Ingrese el NIT" required>
+
+                <label for="inputNombreFactura">Nombre en Factura:</label>
+                <input type="text" id="inputNombreFactura" placeholder="Ingrese el nombre para facturación" required>
+
+                <label for="inputDireccionEntrega">Dirección de Entrega:</label>
+                <input type="text" id="inputDireccionEntrega" placeholder="Ingrese la dirección de entrega" required>
+
+                <label for="inputReferencia">Referencia:</label>
+                <textarea id="inputReferencia" rows="4"></textarea>
+
+                <label for="inputTelefono">Teléfono:</label>
+                <input type="text" id="inputTelefono" placeholder="Ingrese el teléfono principal" required>
+
+                <label for="inputTelefono2">Teléfono 2:</label>
+                <input type="text" id="inputTelefono2" placeholder="Ingrese un teléfono alternativo">
+
+                <label for="inputEmail">Email:</label>
+                <input type="email" id="inputEmail" placeholder="Ingrese el correo electrónico" >
+
+                <h2>Paciente</h2>
+                <label for="inputNombrePaciente">Nombre:</label>
+                <input type="text" id="inputNombrePaciente" placeholder="Ingrese el nombre del paciente" required>
+
+                <label for="inputApellidoPaciente">Apellido:</label>
+                <input type="text" id="inputApellidoPaciente" placeholder="Ingrese el apellido del paciente" required>
+
+                <label for="inputEdad">Edad:</label>
+                <input type="number" id="inputEdad" placeholder="Ingrese la edad" required>
+
+                <label for="inputNombreEncargado">Nombre Encargado:</label>
+                <input type="text" id="inputNombreEncargado" placeholder="Ingrese el nombre del encargado" required>
+
+                <h2>Doctor</h2>
+                <select id="dropdownDoc" class="form-control">
+                    <option value="">Selecciona al Doctor</option>
+                </select>
+
+                <button onclick="window.location.href='doctor.html'" style="margin-top: 10px;">Nuevo Doctor</button>
+                <div id="medicationsContainer">
+                    <h2>Medicamentos</h2>
+                    <button type="button" class="add-medication" onclick="addMedicationSection()">
+                        Agregar Medicamento
+                    </button>
+                    <div id="medicationSections"></div>
+                </div>
+                <button type="submit">Crear Factura</button>
+        </div>
+        </form>
+    </div>
+    </div>
+
+    <script src="menu.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="datos_cliente.js"></script>
+    <script src="registropedido.js"></script>
+
+</body>
+
+</html>

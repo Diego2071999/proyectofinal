@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Inicio</title>
+    <link rel="stylesheet" href="menu.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('imagenes/fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+        }
+        .overlay {
+            background-color: rgba(211, 251, 200, 0.7);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Centra el contenido dentro del container */
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            grid-column: span 3; /* Ocupa todo el ancho del grid */
+            margin-bottom: 20px;
+        }
+
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4de390;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            background-color: #007bb5;
+            transform: scale(1.1);
+        }
+
+        .menu-item a {
+            color: white;
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a  href="inicio.html">Inicio</a></li>
+                    <li><a href="pedidos.html">Pedidos</a></li>
+                    <li><a href="listadoclientes.html">Clientes</a></li>
+                    <li><a href="Seguimiento_Pacientes.html">Seguimiento de Pacientes</a></li>
+                    <li><a href="doctor.html">Doctores</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="relacionDoctorPaciente.html">Doctor Paciente</a></li>
+                    <li><a href="Usuarios.html">Usuarios</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <header>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <img src="imagenes/menu.png" alt="Menú">
+            </div>
+            <div class="logo">
+                <img src="imagenes/logo.png" alt="Pharevsa">
+            </div>
+            <h2 style="margin: 0; color: white;">Inicio</h2>   
+        </header>
+
+        <div class="main-container">
+            <div class="container">
+                <div class="title">Menú</div> <!-- Título centrado en negrilla dentro del container -->
+                <div class="menu-item"><a  href="datos cliente.html">Nueva orden</a></div>
+                <div class="menu-item"><a href="pedidos.html">Pedidos</a></div>
+                <div class="menu-item"><a href="listadoclientes.html">Clientes</a></div>
+                <div class="menu-item"><a href="Seguimiento_Pacientes.html">Seguimiento de Pacientes</a></div>
+                <div class="menu-item"><a href="doctor.html">Doctores</a></div>
+                <div class="menu-item"><a href="productos.html">Productos</a></div>
+                <div class="menu-item"><a href="relacionDoctorPaciente.html">Doctor Paciente</a></div>
+            </div>
+        </div>
+    </div>
+    <script src="menu.js"></script>
+    <script src="inicio.js"></script>
+</body>
+</html>
+

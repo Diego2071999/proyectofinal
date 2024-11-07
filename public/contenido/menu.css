@@ -1,0 +1,72 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4393ee;
+    padding: 10px;
+    border-radius: 8px;
+    /*z-index: 0; /* Aseguramos que el header esté por encima */
+    position: relative; /* Asegúrate de que esté posicionado correctamente */
+}
+
+.menu-icon img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.menu-icon {
+    cursor: pointer;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.new-order-button button {
+    background-color: #76e28f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidebar {
+    width: 250px;
+    height: calc(100% - 60px); /* Ajustar la altura para que esté debajo del header */
+    background-color: #3E6581;
+    /*color: white;*/
+    position: fixed;
+    left: -250px; /* Inicialmente fuera de la vista */
+    top: 60px; /* Posicionarlo debajo del header */
+    transition: left 0.3s ease;
+    font-weight: bold;
+    z-index: 1; /* Aseguramos que esté por debajo del header */
+}
+
+.sidebar.open {
+    left: 0; /* Muestra la sidebar */
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    padding: 30px;
+    text-align: center;
+}
+
+.sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+.content {
+    margin-left: 250px; /* Asegúrate de que el contenido no se superponga a la sidebar */
+    padding: 20px; /* Espaciado interno para el contenido */
+    z-index: 1; /* Asegúrate de que el z-index sea menor que el de la sidebar */
+}

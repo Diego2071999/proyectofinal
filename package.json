@@ -1,0 +1,32 @@
+{
+  "name": "codigo",
+  "version": "1.0.0",
+  "type": "module",
+  "descripcion": "",
+  "main": "index.js",
+  "scripts": {
+    "babel-node": "babel-node --presets=@babel/preset-env",
+    "dev": "nodemon --exec npm run babel-node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mysql2": "^3.11.3",
+    "promise-mysql": "^5.2.0",
+    "sequelize": "^6.37.3"
+  },
+  "description": "",
+  "devDependencies": {
+    "@babel/cli": "^7.25.6",
+    "@babel/core": "^7.25.2",
+    "@babel/node": "^7.25.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-env": "^7.25.4",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.7"
+  }
+}

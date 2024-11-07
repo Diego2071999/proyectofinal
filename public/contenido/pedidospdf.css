@@ -1,0 +1,34 @@
+#contenidoPDF {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+#contenidoPDF table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#contenidoPDF th, #contenidoPDF td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    word-wrap: break-word; /* Permite el ajuste de palabras */
+    overflow: hidden;      /* Oculta el contenido que se desborda */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos si el texto se corta */
+    white-space: normal;   /* Permite el salto de línea */
+}
+
+#contenidoPDF th {
+    background-color: #f2f2f2; /* Color de fondo para el encabezado */
+}
+
+#contenidoPDF .total {
+    font-weight: bold; /* Resalta el total */
+    font-size: 18px;   /* Tamaño de fuente más grande para el total */
+}
+
+#contenidoPDF .info {
+    margin-top: 20px;
+    font-size: 14px;
+}

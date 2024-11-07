@@ -1,0 +1,314 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #4db5e3;
+}
+table th {
+    background-color: #76e28f;
+    color: black;
+    font-weight: bold;
+}
+table tr:nth-child(even) {
+    background-color: #e5ffda;
+}
+table td a {
+    text-decoration: none;
+    color: #0000EE;
+    font-weight: bold;
+    cursor: pointer;
+}
+/*table td a.delete {
+    color: red;
+}*/
+
+.actions button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none; /* Asegúrate de que no haya borde */
+    font-weight: bold; /* Opcional, para resaltar el texto */
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #76e28f;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.view-btn {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Centrar el texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar en línea */
+    font-size: 14px; /* Tamaño del texto */
+    margin: 5px 2px; /* Espacio alrededor del botón */
+    cursor: pointer; /* Cambiar el cursor a mano cuando se pase sobre el botón */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+}
+.delete-btn {
+    background-color: #f44336; /* Rojo */
+    color: white;
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Centrar el texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar en línea */
+    font-size: 14px; /* Tamaño del texto */
+    margin: 5px 2px; /* Espacio alrededor del botón */
+    cursor: pointer; /* Cambiar el cursor a mano cuando se pase sobre el botón */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+}
+/* Estilo base para el botón de Actualizar */
+.update-btn {
+    background-color: #4caf93; /* Color de fondo verde */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Centrar el texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar en línea */
+    font-size: 14px; /* Tamaño del texto */
+    margin: 5px 2px; /* Espacio alrededor del botón */
+    cursor: pointer; /* Cambiar el cursor a mano cuando se pase sobre el botón */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+}
+
+/* Efecto al pasar el cursor sobre el botón */
+.update-btn:hover {
+    background-color: #45a080; /* Cambiar el color de fondo al pasar el cursor */
+}
+
+/* Agrega un hover para mejorar la experiencia del usuario */
+.actions button:hover {
+    opacity: 0.8; /* Efecto de opacidad al pasar el cursor */
+}
+
+.material-symbols-outlined {
+    vertical-align: middle; /* Alinea el icono verticalmente */
+    font-size: 20px; /* Cambia el tamaño del icono según sea necesario */
+}
+
+tbody {
+    display: block;
+    max-height: 600px; /* Ajusta el valor según sea necesario */
+    overflow-y: auto;
+}
+
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* Estilos para la paginación de la tabla */
+.dataTables_wrapper {
+    margin-top: 20px;
+}
+
+.dataTables_paginate {
+    text-align: center;
+}
+
+.dataTables_paginate .paginate_button {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #4db5e3;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    background-color: #3689b8;
+}
+
+.dataTables_paginate .paginate_button.current {
+    background-color: #1e88e5;
+}
+
+/* Estilos para la información de la tabla */
+.dataTables_info {
+    margin-top: 10px;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+}
+
+/* Estilos para el buscador */
+.dataTables_filter {
+    margin-bottom: 10px;
+}
+
+.dataTables_filter input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+/*botones retrasados*/
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-box {
+    min-width: 300px;
+}
+
+.search-box .dataTables_filter {
+    margin: 0;
+    text-align: left;
+}
+
+.search-box .dataTables_filter input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #4db5e3;
+    border-radius: 4px;
+    margin-left: 0 !important;
+}
+
+.delayed-button-box {
+    min-width: 200px;
+}
+
+.delayed-button {
+    width: 100%;
+    padding: 8px;
+    background-color: #ffc107;
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delayed-button:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+.delayed-button.showing-delayed {
+    background-color: #e0a800;
+    color: #000;
+}
+
+.bg-light-danger {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* Estilos para el botón de ordenar */
+.new-order-button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid #4db5e3;
+    background-color: #4db5e3;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.new-order-button:hover {
+    background-color: #3d91b5;
+}
+
+#tablaPedidos {
+    width: 100%; /* Asegúrate de que la tabla use todo el ancho disponible */
+}
+
+.paciente-info {
+    text-align: left; /* Ajustar según la necesidad */
+}
+
+.dt-center {
+    text-align: center; /* Asegura que las celdas estén centradas */
+}
+
+/* Estilo para las celdas */
+td, th {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left; /* Alineación de texto */
+    max-width: 150px; /* Ancho máximo de las celdas */
+    overflow: hidden; /* Ocultar contenido que se desborda */
+    text-overflow: ellipsis; /* Añadir "..." para indicar que hay más contenido */
+    white-space: nowrap; /* Evitar que el texto se rompa en varias líneas */
+}
+/* Estilo para el contenedor de búsqueda personalizada */
+#customSearchContainer {
+    margin-bottom: 10px; /* Espacio debajo del contenedor de búsqueda */
+}
+
+#tablaPedidos {
+    table-layout: fixed; /* Establece el ancho de cada celda de forma equitativa */
+    width: 100%;         /* La tabla ocupará el 100% del contenedor */
+}
+
+#tablaPedidos td {
+    word-wrap: break-word; /* Permite el ajuste del texto */
+    white-space: normal;   /* Asegura que el texto largo se divida en líneas */
+    overflow: hidden;      /* Oculta cualquier desbordamiento */
+}
+
+
+.search-container {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.search-container {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+
